@@ -1,6 +1,8 @@
 # POKÉDEX
 
-Pokédex is a web application created as part of a React challenge. \
+  <img src="https://github.com/fAEDKAN/Pokedex-React/blob/master/pok%C3%A9dex-repo.png" alt="Pokédex" width="400" height="283">
+
+  Pokédex is a web application created as part of a React challenge. \
 This application allows you to explore and discover information about different Pokémon.
 
 ## Key Feature

@@ -15,3 +15,5 @@ This application allows you to explore and discover information about different 
 - **React:** React was used as the core library to build the user interface and manage the application's state.
 - **TypeScript:** TypeScript was employed to add static typing to the codebase, enhancing code quality and maintainability.
 - **PokéAPI:** The PokéAPI was consumed to retrieve Pokémon information. It is a public API that provides detailed data about Pokémon.
+
+![Pokédex](https://github.com/fAEDKAN/Pokedex-React/blob/master/pok%C3%A9dex-repo.png)

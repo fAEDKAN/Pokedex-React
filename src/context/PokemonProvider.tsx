@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { PokemonContext } from "./PokemonContext";
+import React, { useEffect, useState, createContext } from "react";
 import { useForm } from "../hook/useForm";
+import { PokemonData } from "../interfaces/PokemonData.ts";
 
-interface PokemonData {
-  id: number;
-  name: string;
-  image: string;
-  weight: number;
-  abilities: string[];
+interface PokemonContextData {
+  valueSearch: string;
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onResetForm: () => void;
+  allPokemon: PokemonData[];
+  globalPokemon: PokemonData[];
+  getPokemonById: (id: number) => Promise<PokemonData>;
 }
 
 interface PokemonProviderProps {
   children: React.ReactNode;
 }
+
+export const PokemonContext = createContext<PokemonContextData | undefined>(
+  undefined
+);
 
 const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const [allPokemon, setAllPokemon] = useState<PokemonData[]>([]);
@@ -20,9 +25,11 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const [offset, setOffset] = useState(0);
 
   // Custom Hook - useForm
-  const { valueSearch, onInputChange, onResetForm } = useForm({
+  const { formState, onInputChange, onResetForm } = useForm({
     valueSearch: "",
   });
+
+  const { valueSearch } = formState;
 
   // Estados Para la App
   const [loading, setLoading] = useState<boolean>(true);
@@ -45,29 +52,28 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
       }
     );
     const results = await Promise.all(promises);
-    setAllPokemon((prevAllPokemon) => [...prevAllPokemon, ...results]);
+    setAllPokemon(results);
     setLoading(false);
   };
 
   // Listar todos los Pokémon
-  const getGlobalPokemon = async () => {
+  const getGlobalPokemon = async (limit = 100) => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
-    const res = await fetch(`${baseURL}pokemon?limit=100000&offset=0`);
+    const res = await fetch(`${baseURL}pokemon?limit=${limit}&offset=0`);
     const data = await res.json();
 
-    const promises: Promise<PokemonData>[] = data.results.map(
-      async (pokemon: { url: string }) => {
-        const res = await fetch(pokemon.url);
-        const data = await res.json();
-        return data;
-      }
-    );
+    const promises = data.results.map(async (pokemon: { url: string }) => {
+      const res = await fetch(pokemon.url);
+      const data = await res.json();
+      return data;
+    });
+
     const results = await Promise.all(promises);
     setGlobalPokemon(results);
     setLoading(false);
   };
-
+  
   // Listar Pokémon por su ID
   const getPokemonById = async (id: number) => {
     const baseURL = "https://pokeapi.co/api/v2/";
@@ -79,23 +85,23 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
 
   useEffect(() => {
     getAllPokemon();
-  }, []);
+  }, [offset]);
 
   useEffect(() => {
     getGlobalPokemon();
   }, []);
 
+  const contextValue: PokemonContextData = {
+    valueSearch,
+    onInputChange,
+    onResetForm,
+    allPokemon,
+    globalPokemon,
+    getPokemonById,
+  };
+
   return (
-    <PokemonContext.Provider
-      value={{
-        valueSearch,
-        onInputChange,
-        onResetForm,
-        allPokemon,
-        globalPokemon,
-        getPokemonById,
-      }}
-    >
+    <PokemonContext.Provider value={contextValue}>
       {children}
     </PokemonContext.Provider>
   );

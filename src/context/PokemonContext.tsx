@@ -1,5 +1,12 @@
 import { createContext } from "react";
+import { PokemonData } from '../interfaces/PokemonData';
 
-interface PokemonContext {}
+interface PokemonContext {
+  allPokemon: PokemonData[];
+  globalPokemon: PokemonData[];
+}
 
-export const PokemonContext = createContext<PokemonContext | undefined>(undefined);
+export const PokemonContext = createContext<PokemonContext>({
+  allPokemon: [],
+  globalPokemon: [],
+});

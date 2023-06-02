@@ -4,7 +4,6 @@ import { PokemonList } from "../components";
 const HomePage: React.FC = () => {
   return (
     <>
-
       <PokemonList />
     </>
   );

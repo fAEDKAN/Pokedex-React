@@ -1,6 +1,7 @@
 import React, { useEffect, useState, createContext } from "react";
 import { useForm } from "../hook/useForm";
-import { PokemonData } from "../interfaces/PokemonData.ts";
+import { PokemonData } from "../interfaces/PokemonData";
+import { PokemonContext } from "./PokemonContext";
 
 interface PokemonContextData {
   valueSearch: string;
@@ -14,10 +15,6 @@ interface PokemonContextData {
 interface PokemonProviderProps {
   children: React.ReactNode;
 }
-
-export const PokemonContext = createContext<PokemonContextData | undefined>(
-  undefined
-);
 
 const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const [allPokemon, setAllPokemon] = useState<PokemonData[]>([]);
@@ -73,7 +70,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
     setGlobalPokemon(results);
     setLoading(false);
   };
-  
+
   // Listar Pokémon por su ID
   const getPokemonById = async (id: number) => {
     const baseURL = "https://pokeapi.co/api/v2/";

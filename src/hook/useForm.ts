@@ -27,10 +27,11 @@ export const useForm = (initialForm: FormState = {}): FormFunctions => {
     setFormState(initialForm);
   };
 
-  const valueSearch = formState.valueSearch || ""; // Agregar esta línea
+  const valueSearch = formState.valueSearch || "";
 
   return {
     valueSearch,
+    ...formState,
     formState,
     onInputChange,
     onResetForm,

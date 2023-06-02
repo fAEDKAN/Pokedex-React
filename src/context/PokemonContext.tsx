@@ -1,7 +1,5 @@
 import { createContext } from "react";
 
-interface PokemonContext {
-  numero: number;
-}
+interface PokemonContext {}
 
-export const PokemonContext = createContext<PokemonContext | null>(null);
+export const PokemonContext = createContext<PokemonContext | undefined>(undefined);

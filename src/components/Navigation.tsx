@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { PokemonContext } from "../context/PokemonContext";
 
 const Navigation: React.FC = () => {
-  const {  } = useContext(PokemonContext) || {};
+  const {} = useContext(PokemonContext) || {};
 
   return (
     <>

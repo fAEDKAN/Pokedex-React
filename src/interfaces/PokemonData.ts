@@ -3,5 +3,27 @@ export interface PokemonData {
   name: string;
   image: string;
   weight: number;
-  abilities: string[];
+  abilities: AbilityData[];
+  sprites: SpritesData;
+  types: TypeData[];
+}
+
+interface AbilityData {
+  ability: {
+    name: string;
+  };
+}
+
+interface SpritesData {
+  other: {
+    dream_world: {
+      front_default: string;
+    };
+  };
+}
+
+interface TypeData {
+  type: {
+    name: string;
+  };
 }

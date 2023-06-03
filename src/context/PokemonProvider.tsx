@@ -9,7 +9,8 @@ interface PokemonContextData {
   onResetForm: () => void;
   allPokemon: PokemonData[];
   globalPokemon: PokemonData[];
-  getPokemonById: (id: number) => Promise<PokemonData>;
+  getPokemonById: (id: string | undefined) => Promise<PokemonData>;
+  active: boolean;
 }
 
 interface PokemonProviderProps {
@@ -72,7 +73,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   };
 
   // Listar Pokémon por su ID
-  const getPokemonById = async (id: number) => {
+  const getPokemonById = async (id: string | undefined): Promise<PokemonData> => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(`${baseURL}pokemon/${id}`);
@@ -95,6 +96,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
     allPokemon,
     globalPokemon,
     getPokemonById,
+    active
   };
 
   return (

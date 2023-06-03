@@ -2,7 +2,9 @@ export interface PokemonData {
   id: number;
   name: string;
   image: string;
+  height: number;
   weight: number;
+  stats: StatsData[];
   abilities: AbilityData[];
   sprites: SpritesData;
   types: TypeData[];
@@ -26,4 +28,8 @@ interface TypeData {
   type: {
     name: string;
   };
+}
+
+interface StatsData {
+    base_stat: number;
 }

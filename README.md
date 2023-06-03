@@ -1,6 +1,6 @@
 # P O K É D E X
 
-<img src="https://github.com/fAEDKAN/Pokedex-React/blob/master/pok%C3%A9dex-repo.png" alt="Pokédex" width="400" height="283">
+![pokédex-repo-resized](https://github.com/fAEDKAN/Pokedex-React/assets/103541453/f0d3e7f9-03a1-4b5b-9fd3-f6cd62029fed)
 
 **Pokédex is a web application created as part of a *React challenge*.** \
 **This application allows you to *explore* and *discover* information about different Pokémon.**

@@ -10,7 +10,11 @@ interface PokemonContextData {
   allPokemon: PokemonData[];
   globalPokemon: PokemonData[];
   getPokemonById: (id: string | undefined) => Promise<PokemonData>;
+  onClickLoadMore: React.MouseEventHandler<HTMLButtonElement>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface PokemonProviderProps {
@@ -34,7 +38,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const [active, setActive] = useState<boolean>(false);
 
   // Listar 50 Pokémon
-  const getAllPokemon = async (limit = 40) => {
+  const getAllPokemon = async (limit = 52) => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(
@@ -55,10 +59,10 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   };
 
   // Listar todos los Pokémon
-  const getGlobalPokemon = async (limit = 100) => {
+  const getGlobalPokemon = async () => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
-    const res = await fetch(`${baseURL}pokemon?limit=${limit}&offset=0`);
+    const res = await fetch(`${baseURL}pokemon?limit=100000&offset=0`);
     const data = await res.json();
 
     const promises = data.results.map(async (pokemon: { url: string }) => {
@@ -73,7 +77,9 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   };
 
   // Listar Pokémon por su ID
-  const getPokemonById = async (id: string | undefined): Promise<PokemonData> => {
+  const getPokemonById = async (
+    id: string | undefined
+  ): Promise<PokemonData> => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(`${baseURL}pokemon/${id}`);
@@ -89,6 +95,11 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
     getGlobalPokemon();
   }, []);
 
+  // Botón "Cargar Más"
+  const onClickLoadMore: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setOffset(offset + 52);
+  };
+
   const contextValue: PokemonContextData = {
     valueSearch,
     onInputChange,
@@ -96,7 +107,13 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
     allPokemon,
     globalPokemon,
     getPokemonById,
-    active
+    onClickLoadMore,
+    // Loader
+    loading,
+    setLoading,
+    //Button Filter
+    active,
+    setActive: setActive,
   };
 
   return (

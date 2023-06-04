@@ -25,8 +25,10 @@ const SearchPage: React.FC = () => {
           </>
         ) : (
           <>
-            Ese Pokémon no está en la Pokédex!
-            <img className="trainer-icon" src="/trainer-icon.png" />
+            <div>
+              Ese Pokémon no está en la Pokédex!{" "}
+              <img className="trainer-icon" src="/trainer-icon.png" />
+            </div>
           </>
         )}
       </p>

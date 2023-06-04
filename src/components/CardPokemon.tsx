@@ -16,7 +16,6 @@ const CardPokemon: React.FC<CardPokemonProps> = ({ pokemon }) => {
         />
       </div>
       <div className="card-info">
-        {/* <span className='pokemon-id'>N° {pokemon.id}</span> */}
         <h3>{pokemon.name}</h3>
         <div className="card-types">
           {pokemon.abilities.map((ability) => (

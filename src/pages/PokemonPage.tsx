@@ -53,11 +53,11 @@ const PokemonPage: React.FC = () => {
               )}
               <div className="info-pokemon">
                 <div className="group-info">
-                  <p>Altura</p>
+                  <p>Height:</p>
                   {pokemon && <span>{pokemon.height} Metros</span>}
                 </div>
                 <div className="group-info">
-                  <p>Peso</p>
+                  <p>Weight:</p>
                   {pokemon && <span>{pokemon.weight} Kg</span>}
                 </div>
               </div>
@@ -65,9 +65,9 @@ const PokemonPage: React.FC = () => {
           </div>
 
           <div className="container-stats">
-            <h1>Estadísticas</h1>
+            <h1>Stats</h1>
             <div className="stats">
-            <div className="stat-group">
+              <div className="stat-group">
                 <span>HP</span>
                 <div className="progress-bar"></div>
                 {pokemon && (
@@ -77,7 +77,7 @@ const PokemonPage: React.FC = () => {
                 )}
               </div>
               <div className="stat-group">
-                <span>Ataque</span>
+                <span>Attack</span>
                 <div className="progress-bar"></div>
                 {pokemon && (
                   <span className="counter-stat">
@@ -86,7 +86,7 @@ const PokemonPage: React.FC = () => {
                 )}
               </div>
               <div className="stat-group">
-                <span>Defensa</span>
+                <span>Defense</span>
                 <div className="progress-bar"></div>
                 {pokemon && (
                   <span className="counter-stat">
@@ -95,7 +95,7 @@ const PokemonPage: React.FC = () => {
                 )}
               </div>
               <div className="stat-group">
-                <span>Ataque Especial</span>
+                <span>Special Attack</span>
                 <div className="progress-bar"></div>
                 {pokemon && (
                   <span className="counter-stat">
@@ -104,7 +104,7 @@ const PokemonPage: React.FC = () => {
                 )}
               </div>
               <div className="stat-group">
-                <span>Defensa Especial</span>
+                <span>Special Defense</span>
                 <div className="progress-bar"></div>
                 {pokemon && (
                   <span className="counter-stat">
@@ -113,7 +113,7 @@ const PokemonPage: React.FC = () => {
                 )}
               </div>
               <div className="stat-group">
-                <span>Velocidad</span>
+                <span>Speed</span>
                 <div className="progress-bar"></div>
                 {pokemon && (
                   <span className="counter-stat">

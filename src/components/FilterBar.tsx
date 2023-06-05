@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import generateCheckbox from "../helpers/TypeOption";
 import { PokemonContext } from "../context/PokemonContext";
+import { FilterByType, LateralFilterBar } from "../styles/components/FilterBar";
 
 const FilterBar: React.FC = () => {
   const checkbox = generateCheckbox();
@@ -8,14 +9,14 @@ const FilterBar: React.FC = () => {
   const { active } = useContext(PokemonContext);
 
   return (
-    <div className={`container-filters ${active ? "active" : ""}`}>
-      <div className="filter-by-type">
-        <span>Tipo</span>
+    <LateralFilterBar active={active}>
+      <FilterByType>
+        <span>TYPE:</span>
         {checkbox.map((checkboxItem, index) => (
           <div key={index}>{checkboxItem}</div>
         ))}
-      </div>
-    </div>
+      </FilterByType>
+    </LateralFilterBar>
   );
 };
 

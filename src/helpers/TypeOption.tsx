@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import { CheckboxOptions } from "../interfaces/CheckboxOption";
+import { GroupType } from "../styles/components/FilterBar";
 
 const options: CheckboxOptions[] = [
   { name: "Planta", id: "grass" },
@@ -27,7 +28,7 @@ function generateCheckbox() {
   const { handleCheckbox } = useContext(PokemonContext);
 
   return options.map((option) => (
-    <div className="group-type">
+    <GroupType>
       <input
         type="checkbox"
         onChange={handleCheckbox}
@@ -35,7 +36,7 @@ function generateCheckbox() {
         id={option.id}
       />
       <label htmlFor={option.id}>{option.name}</label>
-    </div>
+    </GroupType>
   ));
 }
 

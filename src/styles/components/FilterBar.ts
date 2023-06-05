@@ -10,7 +10,7 @@ export const FilterContainer = styled.div`
 `;
 
 // Icono del filtro
-export const IconFilter = styled.div `
+export const IconFilter = styled.div`
   cursor: pointer;
   margin: 0 0.5em 0 0;
   color: white;
@@ -59,7 +59,7 @@ export const LateralFilterBar = styled.div<{ active?: boolean }>`
   right: -300px;
   width: 15em;
   color: white;
-  background-color: #5D9D8B;
+  background-color: #5d9d8b;
   height: 100%;
   padding-top: 80px;
   transition: 1s all;
@@ -80,8 +80,17 @@ export const GroupType = styled.div`
   display: flex;
   gap: 10px;
   margin-left: 15px;
+  cursor: pointer;
 
+  & input,
   label {
     cursor: pointer;
+    font-weight: 600;
+    color: black;
+  }
+
+  & label:hover {
+    color: white;
+    transition: 0.5s all;
   }
 `;

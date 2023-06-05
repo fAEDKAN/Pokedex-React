@@ -139,8 +139,6 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
         pokemon.types.map((type) => type.type.name).includes(e.target.name)
       );
 
-      console.log(filteredResults);
-
       setFilteredPokemon([...filteredPokemon, ...filteredResults]);
     } else {
       const filteredResults = filteredPokemon.filter(
@@ -149,8 +147,6 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
       );
       setFilteredPokemon([...filteredResults]);
     }
-
-    console.log(typeSelected);
   };
 
   const contextValue: PokemonContextData = {

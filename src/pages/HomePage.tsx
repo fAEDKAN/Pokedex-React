@@ -3,13 +3,13 @@ import { FilterBar, PokemonList } from "../components";
 import { PokemonContext } from "../context/PokemonContext";
 
 const HomePage: React.FC = () => {
-
-  const {onClickLoadMore, active, setActive} = useContext(PokemonContext);
+  const { onClickLoadMore, active, setActive, loading } =
+    useContext(PokemonContext);
 
   return (
     <>
       <div className="container-filter container">
-        <div className="icon-filter" onClick={()=> setActive(!active)}>
+        <div className="icon-filter" onClick={() => setActive(!active)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -29,9 +29,13 @@ const HomePage: React.FC = () => {
       </div>
       <PokemonList />
       <FilterBar />
-      <div className="container-btn-load-more container">
-        <button className="btn-load-more" onClick={onClickLoadMore}>Cargar Más</button>
-      </div>
+      {loading ? null : (
+        <div className="container-btn-load-more container">
+          <button className="btn-load-more" onClick={onClickLoadMore}>
+            Cargar Más
+          </button>
+        </div>
+      )}
     </>
   );
 };

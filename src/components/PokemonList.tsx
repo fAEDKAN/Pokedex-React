@@ -4,7 +4,7 @@ import { CardPokemon, Loader } from "../components";
 import { PokemonData } from "../interfaces/PokemonData";
 
 const PokemonList: React.FC = () => {
-  const { allPokemon, loading } = useContext(PokemonContext);
+  const { allPokemon, loading, filteredPokemon } = useContext(PokemonContext);
 
   return (
     <>
@@ -12,9 +12,19 @@ const PokemonList: React.FC = () => {
         <Loader />
       ) : (
         <div className="card-list-pokemon container">
-          {allPokemon.map((pokemon: PokemonData) => (
-            <CardPokemon pokemon={pokemon} key={pokemon.id} />
-          ))}
+          {filteredPokemon.length ? (
+            <>
+              {filteredPokemon.map((pokemon: PokemonData) => (
+                <CardPokemon pokemon={pokemon} key={pokemon.id} />
+              ))}
+            </>
+          ) : (
+            <>
+              {allPokemon.map((pokemon: PokemonData) => (
+                <CardPokemon pokemon={pokemon} key={pokemon.id} />
+              ))}
+            </>
+          )}
         </div>
       )}
     </>

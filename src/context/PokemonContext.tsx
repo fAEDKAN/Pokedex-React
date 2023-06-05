@@ -10,6 +10,8 @@ interface PokemonContext {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  handleCheckbox: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  filteredPokemon: PokemonData[];
 }
 
 export const PokemonContext = createContext<PokemonContext>({
@@ -21,4 +23,6 @@ export const PokemonContext = createContext<PokemonContext>({
   setLoading: () => {},
   active: false,
   setActive: () => {},
+  handleCheckbox: () => {},
+  filteredPokemon: [],
 });

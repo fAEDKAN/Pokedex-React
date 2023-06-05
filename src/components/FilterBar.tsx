@@ -11,8 +11,8 @@ const FilterBar: React.FC = () => {
     <div className={`container-filters ${active ? "active" : ""}`}>
       <div className="filter-by-type">
         <span>Tipo</span>
-        {checkbox.map((checkbox, index) => (
-          <div key={index}>{checkbox}</div>
+        {checkbox.map((checkboxItem, index) => (
+          <div key={index}>{checkboxItem}</div>
         ))}
       </div>
     </div>

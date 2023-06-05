@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
 import { CheckboxOptions } from "../interfaces/CheckboxOption";
 
 const options: CheckboxOptions[] = [
@@ -6,7 +8,7 @@ const options: CheckboxOptions[] = [
   { name: "Bicho", id: "bug" },
   { name: "Hada", id: "fairy" },
   { name: "Dragón", id: "dragon" },
-  { name: "Fantasma", id: "shadow" },
+  { name: "Fantasma", id: "ghost" },
   { name: "Tierra", id: "ground" },
   { name: "Normal", id: "normal" },
   { name: "Psíquico", id: "psychic" },
@@ -22,9 +24,16 @@ const options: CheckboxOptions[] = [
 ];
 
 function generateCheckbox() {
+  const { handleCheckbox } = useContext(PokemonContext);
+
   return options.map((option) => (
     <div className="group-type">
-      <input type="checkbox" name={option.name} id={option.id} />
+      <input
+        type="checkbox"
+        onChange={handleCheckbox}
+        name={option.id}
+        id={option.id}
+      />
       <label htmlFor={option.id}>{option.name}</label>
     </div>
   ));

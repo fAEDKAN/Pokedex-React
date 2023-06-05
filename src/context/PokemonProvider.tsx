@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useForm } from "../hook/useForm";
 import { PokemonData } from "../interfaces/PokemonData";
 import { PokemonContext } from "./PokemonContext";
@@ -15,6 +15,8 @@ interface PokemonContextData {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  handleCheckbox: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  filteredPokemon: PokemonData[];
 }
 
 interface PokemonProviderProps {
@@ -54,7 +56,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
       }
     );
     const results = await Promise.all(promises);
-    setAllPokemon(results);
+    setAllPokemon([...allPokemon, ...results]);
     setLoading(false);
   };
 
@@ -62,7 +64,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const getGlobalPokemon = async () => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
-    const res = await fetch(`${baseURL}pokemon?limit=100000&offset=0`);
+    const res = await fetch(`${baseURL}pokemon?limit=2000&offset=0`);
     const data = await res.json();
 
     const promises = data.results.map(async (pokemon: { url: string }) => {
@@ -100,6 +102,57 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
     setOffset(offset + 52);
   };
 
+  // Función de filtrado + State
+  const [typeSelected, setTypeSelected] = useState({
+    grass: false,
+    normal: false,
+    fighting: false,
+    flying: false,
+    posion: false,
+    ground: false,
+    rock: false,
+    bug: false,
+    ghost: false,
+    steel: false,
+    fire: false,
+    water: false,
+    electric: false,
+    psychic: false,
+    ice: false,
+    dragon: false,
+    dark: false,
+    fairy: false,
+    unknown: false,
+    shadow: false,
+  });
+
+  const [filteredPokemon, setFilteredPokemon] = useState<PokemonData[]>([]);
+
+  const handleCheckbox = (e: ChangeEvent<HTMLInputElement>) => {
+    setTypeSelected({
+      ...typeSelected,
+      [e.target.name]: e.target.checked,
+    });
+
+    if (e.target.checked) {
+      const filteredResults = globalPokemon.filter((pokemon) =>
+        pokemon.types.map((type) => type.type.name).includes(e.target.name)
+      );
+
+      console.log(filteredResults);
+
+      setFilteredPokemon([...filteredPokemon, ...filteredResults]);
+    } else {
+      const filteredResults = filteredPokemon.filter(
+        (pokemon) =>
+          !pokemon.types.map((type) => type.type.name).includes(e.target.name)
+      );
+      setFilteredPokemon([...filteredResults]);
+    }
+
+    console.log(typeSelected);
+  };
+
   const contextValue: PokemonContextData = {
     valueSearch,
     onInputChange,
@@ -114,6 +167,9 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
     //Button Filter
     active,
     setActive: setActive,
+    // Checkbox Filter
+    handleCheckbox,
+    filteredPokemon,
   };
 
   return (

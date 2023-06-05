@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Contenedor de la imagen
 export const ImageNavbar = styled.img`
   width: 5em;
-  margin-right: 5em;
+  margin-right: 10em;
 `;
 
 // Contenedor de la navbar
@@ -22,16 +22,32 @@ export const NavbarContainer = styled.header`
 export const SearchBarContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 5em;
+  margin-left: 10em;
 `;
 
 // Input de búsqueda
 export const SearchInput = styled.input`
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 1.25em;
+  border: 5px solid black;
+  border-radius: 10em;
+  background-color: white;
+
+  &::placeholder {
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 1em;
+    color: black;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transition: all 0.5s;
+    background-color: lightgray;
+  }
 `;
 
 // Botón del input de búsqueda
@@ -39,16 +55,23 @@ export const SearchButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 8px;
-  padding: 8px;
-  background-color: #007bff;
+  margin-left: 0.25em;
+  padding: 1em;
+  background-color: #ff1616;
   color: #fff;
-  border: none;
-  border-radius: 4px;
+  border: 5px solid black;
+  border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.75s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #e01111;
+    transform: rotate(360deg);
+    transition: all 1s ease;
+  }
+  & svg {
+    color: white;
+    font-size: 1.7em;
+    font-weight: bold;
   }
 `;

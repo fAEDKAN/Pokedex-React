@@ -39,7 +39,7 @@ const Navigation: React.FC = () => {
               id=""
               value={valueSearch}
               onChange={onInputChange}
-              placeholder="Enter Pokémon's Name"
+              placeholder="Enter Pokémon's Name..."
             />
             <SearchButton>
               <AiOutlineSearch />

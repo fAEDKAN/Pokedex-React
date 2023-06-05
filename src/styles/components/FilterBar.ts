@@ -31,7 +31,6 @@ export const LoadMoreBtnContainer = styled.div`
 // Botón de cargar más
 export const LoadMoreBtn = styled.button`
   padding: 15px 40px;
-  font-family: inherit;
   background-color: white;
   color: black;
   font-weight: 600;

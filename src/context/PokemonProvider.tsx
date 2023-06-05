@@ -40,7 +40,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const [active, setActive] = useState<boolean>(false);
 
   // Listar 50 Pokémon
-  const getAllPokemon = async (limit = 50) => {
+  const getAllPokemon = async (limit = 52) => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(

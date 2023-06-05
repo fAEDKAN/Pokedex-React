@@ -6,8 +6,10 @@ import {
   ImageCard,
   OnePokemonLink,
   PokemonCardTypes,
+  PokemonContainer,
 } from "../styles/components/OnePokemon";
 import "../styles/components/PokemonTypes.css";
+import { weightInKg } from "../helpers/WeightInKg";
 
 interface CardPokemonProps {
   pokemon: PokemonData;
@@ -16,30 +18,32 @@ interface CardPokemonProps {
 const CardPokemon: React.FC<CardPokemonProps> = ({ pokemon }) => {
   return (
     <OnePokemonLink to={`/pokemon/${pokemon.id}`}>
-      <ImageCard>
-        <img
-          src={pokemon.sprites.other.dream_world.front_default}
-          alt={`Pokemon ${pokemon.name}`}
-        />
-      </ImageCard>
-      <CardInfo>
-        {pokemon && <h3>{capitalizedLetter(pokemon.name)}</h3>}
-        <PokemonCardTypes>
-          {pokemon.abilities.map((ability) => (
-            <h4 key={ability.ability.name} className={ability.ability.name}>
-              {ability.ability.name}
-            </h4>
-          ))}
-        </PokemonCardTypes>
-        <h4>{pokemon.weight} Kg</h4>
-        <PokemonCardTypes>
-          {pokemon.types.map((type) => (
-            <span key={type.type.name} className={type.type.name}>
-              {type.type.name}
-            </span>
-          ))}
-        </PokemonCardTypes>
-      </CardInfo>
+      <PokemonContainer>
+        <ImageCard>
+          <img
+            src={pokemon.sprites.other.dream_world.front_default}
+            alt={`Pokemon ${pokemon.name}`}
+          />
+        </ImageCard>
+        <CardInfo>
+          {pokemon && <h3>{capitalizedLetter(pokemon.name)}</h3>}
+          <PokemonCardTypes>
+            {pokemon.abilities.map((ability) => (
+              <p key={ability.ability.name} className={ability.ability.name}>
+                {capitalizedLetter(ability.ability.name)}
+              </p>
+            ))}
+          </PokemonCardTypes>
+          <a>{weightInKg(pokemon.weight)} Kg</a>
+          <PokemonCardTypes>
+            {pokemon.types.map((type) => (
+              <span key={type.type.name} className={type.type.name}>
+                {type.type.name}
+              </span>
+            ))}
+          </PokemonCardTypes>
+        </CardInfo>
+      </PokemonContainer>
     </OnePokemonLink>
   );
 };

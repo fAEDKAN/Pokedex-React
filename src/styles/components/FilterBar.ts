@@ -5,7 +5,6 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
 `;
@@ -31,13 +30,19 @@ export const LoadMoreBtnContainer = styled.div`
 
 // Botón de cargar más
 export const LoadMoreBtn = styled.button`
-  border: none;
   padding: 15px 40px;
   font-family: inherit;
-  background-color: red;
-  color: #fff;
-  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  border-radius: 10em;
+  border: 5px solid black;
+  margin: 1em 0 2em 0;
   cursor: pointer;
+  &:hover {
+    background-color: var(--color-secondary);
+    transition: all 0.5s;
+  }
 `;
 
 // Barra lateral del filtro
@@ -51,13 +56,13 @@ export const LateralFilterBar = styled.div<{ active?: boolean }>`
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 0;
+  top: 5.2em;
   right: -300px;
-  width: 250px;
+  width: 15em;
   color: white;
-  background-color: var(--color-primary);
+  background-color: #5D9D8B;
   height: 100%;
-  padding-top: 140px;
+  padding-top: 80px;
   transition: 1s all;
 `;
 

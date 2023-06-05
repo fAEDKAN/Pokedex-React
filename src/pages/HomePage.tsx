@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
       <FilterBar />
       {loading ? null : (
         <LoadMoreBtnContainer>
-          <LoadMoreBtn onClick={onClickLoadMore}>LOAD MORE</LoadMoreBtn>
+          <LoadMoreBtn onClick={onClickLoadMore}>LOAD MORE POKÉMON</LoadMoreBtn>
         </LoadMoreBtnContainer>
       )}
     </>

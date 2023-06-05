@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
 	--color-fairy: #D685AD;
 
   --color-primary: #2FAB8F;
-  --color-secondary: #457F8C;
+  --color-secondary: #5D9D8B;
 }
 
 * {
@@ -37,10 +37,10 @@ body {
   font-family: 'Ubuntu', sans-serif;
   width: 100%;
   height: 100vh;
-/*   background-image: url("/public/pikachu-background-app.jpg");
+  background-image: url("/public/colored-pikachu-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(10px) opacity(5);
-  background-attachment: fixed; */
+/*   backdrop-filter: blur(10px) opacity(5); */
+  background-attachment: fixed;
 }
 `;

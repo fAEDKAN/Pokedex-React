@@ -1,11 +1,11 @@
 import React from "react";
-import "../pokeLoader.css";
+import { LoaderContainer, PokeballLoader } from "../styles/components/pokeLoader";
 
 const Loader: React.FC = () => {
   return (
-    <div className="container-loader">
-      <div className="ball"></div>
-    </div>
+    <LoaderContainer>
+      <PokeballLoader />
+    </LoaderContainer>
   );
 };
 

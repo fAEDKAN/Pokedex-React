@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Loader } from "../components";
 import { PokemonData } from "../interfaces/PokemonData";
 import { capitalizedLetter } from "../helpers/CapitalizedLetter";
+import { StyledPokemonPage } from "../styles/components/PokemonPage";
 
 const PokemonPage: React.FC = () => {
   const { getPokemonById } = useContext(PokemonContext);
@@ -24,7 +25,7 @@ const PokemonPage: React.FC = () => {
   }, []);
 
   return (
-    <main className="container main-pokemon">
+    <StyledPokemonPage>
       {loading ? (
         <Loader />
       ) : (
@@ -125,7 +126,7 @@ const PokemonPage: React.FC = () => {
           </div>
         </>
       )}
-    </main>
+    </StyledPokemonPage>
   );
 };
 

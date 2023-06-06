@@ -4,7 +4,23 @@ import { useParams } from "react-router-dom";
 import { Loader } from "../components";
 import { PokemonData } from "../interfaces/PokemonData";
 import { capitalizedLetter } from "../helpers/CapitalizedLetter";
-import { StyledPokemonPage } from "../styles/components/PokemonPage";
+import {
+  CounterStat,
+  GeneralStatsContainer,
+  HeightWeight,
+  HeightWeightGroup,
+  MainPokemonContainer,
+  PokemonCardContainer,
+  PokemonDescription,
+  PokemonImage,
+  PokemonNumber,
+  PokemonTypes,
+  ProgressBar,
+  StatGroup,
+  StatsContainer,
+  StyledPokemonPage,
+} from "../styles/components/PokemonPage";
+import { weightAndHeight } from "../helpers/WeightAndHeightConverter";
 
 const PokemonPage: React.FC = () => {
   const { getPokemonById } = useContext(PokemonContext);
@@ -30,100 +46,121 @@ const PokemonPage: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <div className="header-main-pokemon">
-            {pokemon && <span className="number-pokemon">#{pokemon.id}</span>}
-            <div className="container-img-pokemon">
-              {pokemon && (
-                <img
-                  src={pokemon.sprites.other.dream_world.front_default}
-                  alt={`Pokemon ${pokemon?.name}`}
-                />
-              )}
-            </div>
+          <PokemonCardContainer>
+            <MainPokemonContainer>
+              {pokemon && <PokemonNumber># {pokemon.id}</PokemonNumber>}
+              <PokemonImage>
+                {pokemon && (
+                  <img
+                    src={pokemon.sprites.other.home.front_default}
+                    alt={`Pokemon ${pokemon?.name}`}
+                  />
+                )}
+              </PokemonImage>
 
-            <div className="container-info-pokemon">
-              {pokemon && <h1>{capitalizedLetter(pokemon.name)}</h1>}
-              {pokemon && (
-                <div className="card-types info-pokemon-type">
-                  {pokemon.types.map((type) => (
-                    <span key={type.type.name} className={`${type.type.name}`}>
-                      {type.type.name}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <div className="info-pokemon">
-                <div className="group-info">
-                  <p>Height:</p>
-                  {pokemon && <span>{pokemon.height} Metros</span>}
-                </div>
-                <div className="group-info">
-                  <p>Weight:</p>
-                  {pokemon && <span>{pokemon.weight} Kg</span>}
-                </div>
-              </div>
-            </div>
-          </div>
+              <PokemonDescription>
+                {pokemon && <h1>{capitalizedLetter(pokemon.name)}</h1>}
+                {pokemon && (
+                  <PokemonTypes>
+                    {pokemon.types.map((type) => (
+                      <span
+                        key={type.type.name}
+                        className={`${type.type.name}`}
+                      >
+                        {type.type.name}
+                      </span>
+                    ))}
+                  </PokemonTypes>
+                )}
+                <HeightWeight>
+                  <HeightWeightGroup>
+                    <p>Height:</p>
+                    {pokemon && (
+                      <span>{weightAndHeight(pokemon.height)} meters</span>
+                    )}
+                  </HeightWeightGroup>
+                  <HeightWeightGroup>
+                    <p>Weight:</p>
+                    {pokemon && (
+                      <span>{weightAndHeight(pokemon.weight)} kilograms</span>
+                    )}
+                  </HeightWeightGroup>
+                </HeightWeight>
+              </PokemonDescription>
+            </MainPokemonContainer>
 
-          <div className="container-stats">
-            <h1>Stats</h1>
-            <div className="stats">
-              <div className="stat-group">
-                <span>HP</span>
-                <div className="progress-bar"></div>
-                {pokemon && (
-                  <span className="counter-stat">
-                    {pokemon.stats[0].base_stat}
-                  </span>
-                )}
-              </div>
-              <div className="stat-group">
-                <span>Attack</span>
-                <div className="progress-bar"></div>
-                {pokemon && (
-                  <span className="counter-stat">
-                    {pokemon.stats[1].base_stat}
-                  </span>
-                )}
-              </div>
-              <div className="stat-group">
-                <span>Defense</span>
-                <div className="progress-bar"></div>
-                {pokemon && (
-                  <span className="counter-stat">
-                    {pokemon.stats[2].base_stat}
-                  </span>
-                )}
-              </div>
-              <div className="stat-group">
-                <span>Special Attack</span>
-                <div className="progress-bar"></div>
-                {pokemon && (
-                  <span className="counter-stat">
-                    {pokemon.stats[3].base_stat}
-                  </span>
-                )}
-              </div>
-              <div className="stat-group">
-                <span>Special Defense</span>
-                <div className="progress-bar"></div>
-                {pokemon && (
-                  <span className="counter-stat">
-                    {pokemon.stats[4].base_stat}
-                  </span>
-                )}
-              </div>
-              <div className="stat-group">
-                <span>Speed</span>
-                <div className="progress-bar"></div>
-                {pokemon && (
-                  <span className="counter-stat">
-                    {pokemon.stats[5].base_stat}
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
+            <GeneralStatsContainer>
+              <h1>Stats</h1>
+              <StatsContainer>
+                <StatGroup>
+                  <span>HP</span>
+                  {pokemon && (
+                    <ProgressBar
+                      progress={(pokemon.stats[0].base_stat / 255) * 200}
+                    ></ProgressBar>
+                  )}
+                  {pokemon && (
+                    <CounterStat>{pokemon.stats[0].base_stat}</CounterStat>
+                  )}
+                </StatGroup>
+                <StatGroup>
+                  <span>Attack</span>
+                  {pokemon && (
+                    <ProgressBar
+                      progress={(pokemon.stats[1].base_stat / 255) * 200}
+                    ></ProgressBar>
+                  )}
+                  {pokemon && (
+                    <CounterStat>{pokemon.stats[1].base_stat}</CounterStat>
+                  )}
+                </StatGroup>
+                <StatGroup>
+                  <span>Defense</span>
+                  {pokemon && (
+                    <ProgressBar
+                      progress={(pokemon.stats[2].base_stat / 255) * 200}
+                    ></ProgressBar>
+                  )}
+                  {pokemon && (
+                    <CounterStat>{pokemon.stats[2].base_stat}</CounterStat>
+                  )}
+                </StatGroup>
+                <StatGroup>
+                  <span>Special Attack</span>
+                  {pokemon && (
+                    <ProgressBar
+                      progress={(pokemon.stats[3].base_stat / 255) * 200}
+                    ></ProgressBar>
+                  )}
+                  {pokemon && (
+                    <CounterStat>{pokemon.stats[3].base_stat}</CounterStat>
+                  )}
+                </StatGroup>
+                <StatGroup>
+                  <span>Special Defense</span>
+                  {pokemon && (
+                    <ProgressBar
+                      progress={(pokemon.stats[4].base_stat / 255) * 200}
+                    ></ProgressBar>
+                  )}
+                  {pokemon && (
+                    <CounterStat>{pokemon.stats[4].base_stat}</CounterStat>
+                  )}
+                </StatGroup>
+                <StatGroup>
+                  <span>Speed</span>
+                  {pokemon && (
+                    <ProgressBar
+                      progress={(pokemon.stats[5].base_stat / 255) * 200}
+                    ></ProgressBar>
+                  )}
+                  {pokemon && (
+                    <CounterStat>{pokemon.stats[5].base_stat}</CounterStat>
+                  )}
+                </StatGroup>
+              </StatsContainer>
+            </GeneralStatsContainer>
+          </PokemonCardContainer>
         </>
       )}
     </StyledPokemonPage>

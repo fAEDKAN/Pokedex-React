@@ -54,10 +54,10 @@ export const CardInfo = styled.div`
     font-size: 1.5rem;
   }
 
-  & a {
-    text-decoration: none;
+  & p {
+    font-size: 1.25rem;
+    padding: 0em;
     color: #fff;
-    font-size: 1.1rem;
   }
 `;
 
@@ -71,7 +71,7 @@ export const PokemonCardTypes = styled.div`
     font-size: 0.9em;
     padding: 0.3em 1.2em;
     border-radius: 1em;
-    color: #fff;
+    color: black;
   }
   & p {
     font-size: 0.9rem;

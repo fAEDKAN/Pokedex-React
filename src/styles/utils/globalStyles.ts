@@ -3,24 +3,24 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 
 :root {
-  --color-normal: #A8A77A;
-	--color-fire: #EE8130;
-	--color-water: #6390F0;
-	--color-electric: #F7D02C;
-	--color-grass: #7AC74C;
-	--color-ice: #96D9D6;
-	--color-fighting: #C22E28;
-	--color-poison: #A33EA1;
-	--color-ground: #E2BF65;
-	--color-flying: #A98FF3;
-	--color-psychic: #F95587;
-	--color-bug: #A6B91A;
-	--color-rock: #B6A136;
-	--color-ghost: #735797;
-	--color-dragon: #6F35FC;
-	--color-dark: #705746;
-	--color-steel: #B7B7CE;
-	--color-fairy: #D685AD;
+  --color-normal: #b8b8a8;
+	--color-fire: #f89030;
+	--color-water: #6898f7;
+	--color-electric: #e0e000;
+	--color-grass: #90e880;
+	--color-ice: #30d8cf;
+	--color-fighting: #f87070;
+	--color-poison: #e090f8;
+	--color-ground: linear-gradient(180deg, #e0e000 50%, #c8a048 50%);
+	--color-flying: linear-gradient(180deg, #58c8f0 50%, #b8b8a8 50%);
+	--color-psychic: #f838a8;
+	--color-bug: #a0c888;
+	--color-rock: #c8a048;
+	--color-ghost: #a870f8;
+  --color-dragon: linear-gradient(180deg, #6898f8 50%, #f87070 50%);
+	--color-dark: #908888;
+	--color-steel: #b8b8d0;
+	--color-fairy: #ff65d5;
 
   --color-primary: #2FAB8F;
   --color-secondary: #5D9D8B;

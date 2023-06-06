@@ -18,6 +18,7 @@ interface AbilityData {
 
 interface SpritesData {
   other: {
+    home: any;
     dream_world: {
       front_default: string;
     };

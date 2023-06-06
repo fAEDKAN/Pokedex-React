@@ -25,11 +25,11 @@
 }
 
 .flying {
-  background-color: var(--color-flying);
+  background: var(--color-flying);
 }
 
 .ground {
-  background-color: var(--color-ground);
+  background: var(--color-ground);
 }
 
 .steel {

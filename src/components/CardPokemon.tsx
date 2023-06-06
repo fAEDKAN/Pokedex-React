@@ -9,7 +9,7 @@ import {
   PokemonContainer,
 } from "../styles/components/OnePokemon";
 import "../styles/components/PokemonTypes.css";
-import { weightInKg } from "../helpers/WeightInKg";
+import { weightAndHeight } from "../helpers/WeightAndHeightConverter";
 
 interface CardPokemonProps {
   pokemon: PokemonData;
@@ -34,7 +34,7 @@ const CardPokemon: React.FC<CardPokemonProps> = ({ pokemon }) => {
               </p>
             ))}
           </PokemonCardTypes>
-          <a>{weightInKg(pokemon.weight)} Kg</a>
+          <p>{weightAndHeight(pokemon.weight)} kg</p>
           <PokemonCardTypes>
             {pokemon.types.map((type) => (
               <span key={type.type.name} className={type.type.name}>

@@ -64,7 +64,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const getGlobalPokemon = async () => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
-    const res = await fetch(`${baseURL}pokemon?limit=2000&offset=0`);
+    const res = await fetch(`${baseURL}pokemon?limit=100000&offset=0`);
     const data = await res.json();
 
     const promises = data.results.map(async (pokemon: { url: string }) => {

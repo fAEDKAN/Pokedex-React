@@ -38,6 +38,7 @@ export const ImageCard = styled.div`
   justify-content: center;
   border-radius: 50%;
   height: 15em;
+  padding: 0.5em;
   & img {
     width: 100%;
     height: 100%;
@@ -46,7 +47,7 @@ export const ImageCard = styled.div`
 
 // Información de la tarjeta
 export const CardInfo = styled.div`
-  padding: 15px;
+  padding: 0.5em;
 
   & h3 {
     text-decoration: none;

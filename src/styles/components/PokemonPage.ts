@@ -14,17 +14,22 @@ export const StyledPokemonPage = styled.main`
 
 // Contenedor de la info y los stats
 export const PokemonCardContainer = styled.div`
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
   background-color: rgba(0, 0, 0, 0.9);
   position: relative;
   top: 1.5em;
+  width: 50%;
+  height: 80vh;
 `;
 
 export const PokemonNumber = styled.span`
-  font-size: 5em;
+  font-size: 7em;
   font-weight: 600;
   color: var(--color-grass);
+  position: fixed;
+  top: 125px;
+  left: 510px;
 `;
 
 // Contenedor de la info
@@ -50,7 +55,7 @@ export const PokemonDescription = styled.div`
   flex-wrap: nowrap;
   gap: 5em;
   text-align: center;
-  align-items: center;
+  align-items: flex-end;
 
   & h1 {
     color: #fff;

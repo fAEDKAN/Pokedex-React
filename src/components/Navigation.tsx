@@ -30,22 +30,23 @@ const Navigation: React.FC = () => {
         <Link to="/" className="logo">
           <ImageNavbar src="/public/pokeball-navbar.png" alt="Logo Pokedex" />
         </Link>
-
-        <form onSubmit={onSearchSubmit}>
+        {
           <SearchBarContainer>
-            <SearchInput
-              type="search"
-              name="valueSearch"
-              id=""
-              value={valueSearch}
-              onChange={onInputChange}
-              placeholder="Enter Pokémon's Name..."
-            />
-            <SearchButton>
-              <AiOutlineSearch />
-            </SearchButton>
+            <form onSubmit={onSearchSubmit}>
+              <SearchInput
+                type="search"
+                name="valueSearch"
+                id=""
+                value={valueSearch}
+                onChange={onInputChange}
+                placeholder="Enter Pokémon's Name..."
+              />
+              <SearchButton>
+                <AiOutlineSearch />
+              </SearchButton>
+            </form>
           </SearchBarContainer>
-        </form>
+        }
       </NavbarContainer>
 
       <Outlet />

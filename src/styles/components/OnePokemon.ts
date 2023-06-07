@@ -6,7 +6,7 @@ export const PokemonContainer = styled.div`
   border: 2px solid black;
   border-radius: 0.75em;
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
-  background-color: rgba(93, 157, 139, 0.85);
+  background-color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   color: black;
 

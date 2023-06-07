@@ -43,10 +43,10 @@ export const PokeballLoader = styled.div`
   animation: ${rollAnimation} 1s ease-in-out infinite;
   background: linear-gradient(
     to bottom,
-    #e83e35 0%,
-    #e83e35 50.5%,
-    #ffffff 50.51%,
-    #ffffff 100%
+    #FB1B1B 0%,
+    #FB1B1B 50.5%,
+    #FFFFFF 50.51%,
+    #FFFFFF 100%
   );
 
   & :after {

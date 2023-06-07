@@ -3,24 +3,25 @@ import styled from "styled-components";
 
 // Carta de Pokémon
 export const PokemonContainer = styled.div`
-  border: 2px solid white;
-  border-radius: 1em;
-  background-color: rgba(0, 0, 0, 0.85);
+  border: 2px solid black;
+  border-radius: 0.75em;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
+  background-color: rgba(93, 157, 139, 0.85);
   text-decoration: none;
-  color: white;
+  color: black;
+
   :hover {
-    border: 2px solid black;
-    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.85);
     transition: all 0.5s;
     &:hover p,
     h3,
     a {
-      color: black;
+      color: white;
       transition: all 0.5s;
     }
   }
   :hover img {
-    border-radius: 1em;
     transition: all 0.5s;
   }
 `;
@@ -47,18 +48,15 @@ export const ImageCard = styled.div`
 
 // Información de la tarjeta
 export const CardInfo = styled.div`
-  padding: 0.5em;
+  padding: 0.25em 0.75em;
 
   & h3 {
     text-decoration: none;
-    color: #fff;
     font-size: 1.5rem;
   }
 
   & p {
     font-size: 1.25rem;
-    padding: 0em;
-    color: #fff;
   }
 `;
 
@@ -71,12 +69,10 @@ export const PokemonCardTypes = styled.div`
   & span {
     font-size: 0.9em;
     padding: 0.3em 1.2em;
-    border-radius: 1em;
     color: black;
+    border-radius: 0.5em;
   }
   & p {
     font-size: 0.9rem;
-    padding: 0em;
-    color: #fff;
   }
 `;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // Contenedor del filtro
 export const FilterContainer = styled.div`
@@ -12,11 +12,103 @@ export const FilterContainer = styled.div`
 // Icono del filtro
 export const IconFilter = styled.div`
   cursor: pointer;
-  margin: 0 0.5em 0 0;
+  position: absolute;
+  left: 1em;
+  top: 3.3em;
+  width: 60px;
+  margin-top: -30px;
+  transition: all 0.2s ease-out;
+
+  &:hover .hamburguer-bt_stripe {
+    background: black;
+  }
+
+  .hamburguer-bt_stripe {
+    width: 100%;
+    height: 10px;
+    background: white;
+    margin: 6px auto;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+  }
+
+  &.on .hamburguer-bt_stripe_top {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+
+  &.on .hamburguer-bt_stripe_middle {
+    opacity: 0;
+  }
+
+  &.on .hamburguer-bt_stripe_bottom {
+    transform: rotate(-45deg) translate(10px, -10px);
+  }
+`;
+
+// Barra lateral del filtro
+/* slideIn desplaza la barra para mostrarla */
+const slideIn = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+/* sildeOut desplaza la barra para ocultarla */
+const slideOut = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
+
+export const LateralFilterBar = styled.div<{ active?: boolean }>`
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  top: 6.3em;
+  left: 0;
+  width: 9em;
   color: white;
-  &:hover {
+  background-color: rgba(144, 232, 128, 0.7);
+  border-right: 2px solid black;
+  height: 100%;
+  padding-top: 80px;
+  animation: ${({ active }) => (active ? slideIn : slideOut)} 0.75s forwards;
+`;
+
+export const FilterByType = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  span {
+    display: flex;
+    font-weight: 700;
+    font-size: 25px;
+    padding: 0 0 0 0.6em;
+  }
+`;
+
+export const GroupType = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-left: 15px;
+  cursor: pointer;
+
+  & input,
+  label {
+    cursor: pointer;
+    font-weight: 600;
     color: black;
-    transition: all 1s ease-out;
+  }
+
+  & label:hover {
+    color: white;
+    transition: 0.5s all;
   }
 `;
 
@@ -41,56 +133,5 @@ export const LoadMoreBtn = styled.button`
   &:hover {
     background-color: var(--color-secondary);
     transition: all 0.5s;
-  }
-`;
-
-// Barra lateral del filtro
-export const LateralFilterBar = styled.div<{ active?: boolean }>`
-  ${(props) =>
-    props.active &&
-    `
-  left: 0;
-  transition: 1s all;
-  `}
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 5.2em;
-  right: -300px;
-  width: 15em;
-  color: white;
-  background-color: #5d9d8b;
-  height: 100%;
-  padding-top: 80px;
-  transition: 1s all;
-`;
-
-export const FilterByType = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  span {
-    font-weight: 700;
-    font-size: 22px;
-  }
-`;
-
-export const GroupType = styled.div`
-  display: flex;
-  gap: 10px;
-  margin-left: 15px;
-  cursor: pointer;
-
-  & input,
-  label {
-    cursor: pointer;
-    font-weight: 600;
-    color: black;
-  }
-
-  & label:hover {
-    color: white;
-    transition: 0.5s all;
   }
 `;

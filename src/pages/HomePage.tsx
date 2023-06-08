@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { FilterBar, PokemonList } from "../components";
 import { PokemonContext } from "../context/PokemonContext";
 /* import { AiOutlineMenu } from "react-icons/Ai"; */

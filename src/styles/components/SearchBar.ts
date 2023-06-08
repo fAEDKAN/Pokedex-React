@@ -36,11 +36,11 @@ export const SearchBarContainer = styled.div`
 // Input de búsqueda
 export const SearchInput = styled.input`
   flex: 1;
-  padding: 1em;
+  padding: 0em 0em 0em 2em;
   border: 2px solid black;
   border-radius: 10em;
   background-color: white;
-  text-align: center;
+  /*   text-align: center; */
   width: 25em;
   height: 2.75em;
   font-size: 1em;

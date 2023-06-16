@@ -8,7 +8,6 @@ export const StyledPokemonPage = styled.main`
   flex-direction: row;
   flex-wrap: nowrap;
   width: 100%;
-  height: 100vh;
   margin: 0 auto;
 `;
 
@@ -16,11 +15,14 @@ export const StyledPokemonPage = styled.main`
 export const PokemonCardContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.9);
   position: relative;
   top: 1.5em;
-  width: 50%;
-  height: 80vh;
+  /* width: 50%; */
+  width: 65em;
+  height: 50em;
 `;
 
 export const PokemonNumber = styled.span`
@@ -35,18 +37,17 @@ export const PokemonNumber = styled.span`
 // Contenedor de la info
 export const MainPokemonContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+/*   align-items: center; */
   flex-direction: column;
-  padding: 2em 0em;
   width: 40em;
+  margin: 0 auto;
 `;
 
 export const PokemonImage = styled.div`
   display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  & img {
+    width: 100%;
+  }
 `;
 
 // Contenedor de la descripción
@@ -54,8 +55,7 @@ export const PokemonDescription = styled.div`
   display: flex;
   flex-wrap: nowrap;
   gap: 5em;
-  text-align: center;
-  align-items: flex-end;
+  align-items: center;
 
   & h1 {
     color: #fff;

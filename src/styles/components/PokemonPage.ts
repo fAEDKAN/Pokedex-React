@@ -27,9 +27,9 @@ export const PokemonNumber = styled.span`
   font-size: 7em;
   font-weight: 600;
   color: var(--color-grass);
-  position: fixed;
-  top: 125px;
-  left: 510px;
+  position: absolute;
+  top: 0em;
+  left: 0.2em;
 `;
 
 // Contenedor de la info

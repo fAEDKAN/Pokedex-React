@@ -21,9 +21,6 @@ export const PokemonContainer = styled.div`
       transition: all 0.5s;
     }
   }
-  :hover img {
-    transition: all 0.5s;
-  }
 `;
 
 // Enlace a descripción del Pokémon

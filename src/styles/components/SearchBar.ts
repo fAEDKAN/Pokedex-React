@@ -81,12 +81,13 @@ export const SearchButton = styled.button`
 
   &:hover {
     background-color: #e01111;
-    transform: rotate(360deg);
-    transition: all 1s ease;
+    & svg {
+      transform: rotate(360deg);
+      transition: all 0.75s ease-out;
+    }
   }
   & svg {
     color: white;
-    font-size: 1.7em;
-    font-weight: bold;
+    font-size: 1.5em;
   }
 `;

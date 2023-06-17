@@ -4,15 +4,16 @@ import styled from "styled-components";
 export const NavbarContainer = styled.header`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-color: var(--color-primary);
   border-bottom: 2px solid black;
-  position: sticky;
-  width: 100%;
+  position: fixed;
+  width: 100vw;
+  gap: 30em;
   top: 0;
 `;
 
-// Contenedor de la imagen
+// Contenedor de la Pokéball
 export const ImageNavbar = styled.img`
   width: 6em;
 
@@ -26,10 +27,7 @@ export const ImageNavbar = styled.img`
 export const SearchBarContainer = styled.div`
   & form {
     display: flex;
-    position: absolute;
     align-items: center;
-    left: 88em;
-    top: 1.2em;
   }
 `;
 
@@ -40,7 +38,6 @@ export const SearchInput = styled.input`
   border: 2px solid black;
   border-radius: 10em;
   background-color: white;
-  /*   text-align: center; */
   width: 25em;
   height: 2.75em;
   font-size: 1em;

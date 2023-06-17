@@ -1,22 +1,18 @@
 import styled, { keyframes } from "styled-components";
 
 // Contenedor del filtro
-export const FilterContainer = styled.div`
+export const FilterContainer = styled.div<{ isVisible: boolean }>`
   display: flex;
   justify-content: flex-end;
-  position: fixed;
-  top: 0;
-  left: 0;
+  visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
+  opacity: ${({ isVisible }) => (isVisible ? 1: 0)};
 `;
 
 // Icono del filtro
 export const IconFilter = styled.div`
   cursor: pointer;
-  position: absolute;
-  left: 1em;
-  top: 3.3em;
+  position: relative;
   width: 60px;
-  margin-top: -30px;
   transition: all 0.2s ease-out;
 
   &:hover .hamburguer-bt_stripe {
@@ -49,7 +45,7 @@ export const IconFilter = styled.div`
 /* slideIn desplaza la barra para mostrarla */
 const slideIn = keyframes`
   0% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(0);
@@ -61,7 +57,7 @@ const slideOut = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 `;
 
@@ -70,11 +66,11 @@ export const LateralFilterBar = styled.div<{ active?: boolean }>`
   justify-content: flex-start;
   position: fixed;
   top: 6.3em;
-  left: 0;
-  width: 9em;
+  right: 0;
+  width: 10em;
   color: white;
   background-color: rgba(144, 232, 128, 0.7);
-  border-right: 2px solid black;
+  border-left: 2px solid black;
   height: 100%;
   padding-top: 80px;
   animation: ${({ active }) => (active ? slideIn : slideOut)} 0.75s forwards;

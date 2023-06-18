@@ -11,6 +11,7 @@ export const NavbarContainer = styled.header`
   width: 100vw;
   gap: 30em;
   top: 0;
+  z-index: 1;
 `;
 
 // Contenedor de la Pokéball

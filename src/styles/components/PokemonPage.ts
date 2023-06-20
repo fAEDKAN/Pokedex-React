@@ -8,6 +8,7 @@ export const StyledPokemonPage = styled.main`
   flex-direction: row;
   flex-wrap: nowrap;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
 `;
 
@@ -20,7 +21,6 @@ export const PokemonCardContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.9);
   position: relative;
   top: 1.5em;
-  /* width: 50%; */
   width: 65em;
   height: 50em;
 `;
@@ -37,7 +37,7 @@ export const PokemonNumber = styled.span`
 // Contenedor de la info
 export const MainPokemonContainer = styled.div`
   display: flex;
-/*   align-items: center; */
+  /*   align-items: center; */
   flex-direction: column;
   width: 40em;
   margin: 0 auto;

@@ -8,7 +8,8 @@ import {
   PokemonCardTypes,
   PokemonContainer,
 } from "../styles/components/OnePokemon";
-import "../styles/components/PokemonTypes.css";
+/* import "../styles/components/PokemonTypes.css";
+import "../styles/components/PokemonTypesBackground.css" */
 import { weightAndHeight } from "../helpers/WeightAndHeightConverter";
 
 interface CardPokemonProps {
@@ -18,7 +19,7 @@ interface CardPokemonProps {
 const CardPokemon: React.FC<CardPokemonProps> = ({ pokemon }) => {
   return (
     <OnePokemonLink to={`/pokemon/${pokemon.id}`}>
-      <PokemonContainer>
+      <PokemonContainer className={pokemon.types[0].type.name}>
         <ImageCard>
           <img
             src={pokemon.sprites.other.dream_world.front_default}

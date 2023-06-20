@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { PokemonList } from "../components";
 import { PokemonContext } from "../context/PokemonContext";
-/* import { AiOutlineMenu } from "react-icons/Ai"; */
 import {
   LoadMoreBtn,
   LoadMoreBtnContainer,

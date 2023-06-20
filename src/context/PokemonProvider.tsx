@@ -40,7 +40,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const [active, setActive] = useState<boolean>(false);
 
   // Listar 50 Pokémon
-  const getAllPokemon = async (limit = 52) => {
+  const getAllPokemon = async (limit = 50) => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(
@@ -99,7 +99,7 @@ const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
 
   // Botón "Cargar Más"
   const onClickLoadMore: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setOffset(offset + 52);
+    setOffset(offset + 50);
   };
 
   // Función de filtrado + State

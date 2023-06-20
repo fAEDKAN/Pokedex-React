@@ -13,31 +13,33 @@ const SearchPage: React.FC = () => {
   );
 
   return (
-    <div className="container">
-      <p className="p-search">
-        {filteredPokemon.length === 1 ? (
-          <>
-            Se encontró <span>{filteredPokemon.length}</span> resultado:
-          </>
-        ) : filteredPokemon.length > 1 ? (
-          <>
-            Se encontraron <span>{filteredPokemon.length}</span> resultados:
-          </>
-        ) : (
-          <>
-            <div>
-              Ese Pokémon no está en la Pokédex!{" "}
-              <img className="trainer-icon" src="/trainer-icon.png" />
-            </div>
-          </>
-        )}
-      </p>
-      <div className="card-list-pokemon container">
-        {filteredPokemon.map((pokemon) => (
-          <CardPokemon pokemon={pokemon} key={pokemon.id} />
-        ))}
+    <>
+      <div className="container">
+        <p className="p-search">
+          {filteredPokemon.length === 1 ? (
+            <>
+              Se encontró <span>{filteredPokemon.length}</span> resultado:
+            </>
+          ) : filteredPokemon.length > 1 ? (
+            <>
+              Se encontraron <span>{filteredPokemon.length}</span> resultados:
+            </>
+          ) : (
+            <>
+              <div>
+                Ese Pokémon no está en la Pokédex!{" "}
+                <img className="trainer-icon" src="/trainer-icon.png" />
+              </div>
+            </>
+          )}
+        </p>
+        <div className="card-list-pokemon container">
+          {filteredPokemon.map((pokemon) => (
+            <CardPokemon pokemon={pokemon} key={pokemon.id} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

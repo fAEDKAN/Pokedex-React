@@ -6,12 +6,13 @@ import "../components/PokemonTypes.css";
 export const CardInfo = styled.div`
   padding: 0.5em 0.75em 0.15em;
   background-color: rgba(255, 255, 255, 0.75);
-  border-bottom-right-radius: 0.75em;
-  border-bottom-left-radius: 0.75em;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
 
   & h3 {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    text-align: center;
   }
 
   & p {
@@ -45,20 +46,15 @@ export const PokemonContainer = styled.div`
       color: white;
       transition: all 0.5s;
     }
-    &:hover span {
-      border: 2px solid white;
-      color: white;
-      transition: all 0.5s;
-    }
   }
   &:hover ${CardInfo} {
     background-color: rgba(0, 0, 0, 0.9);
-    border-radius: 0.75em;
     transition: all 0.5s;
   }
   &:hover ${ImageCard} {
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 0.75em;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
     transition: all 0.5s;
   }
 `;
@@ -74,13 +70,13 @@ export const PokemonCardTypes = styled.div`
   display: flex;
   gap: 0.75em;
   margin: 0.75em 0em;
-  justify-content: flex-end;
+  justify-content: center;
   & span {
     font-size: 0.9em;
     padding: 0.3em 1.2em;
     color: black;
     border-radius: 1em;
-    border: 2px solid black;
+    border: none;
   }
   & p {
     font-size: 0.9rem;

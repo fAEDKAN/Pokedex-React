@@ -8,8 +8,6 @@ import {
   PokemonCardTypes,
   PokemonContainer,
 } from "../styles/components/OnePokemon";
-/* import "../styles/components/PokemonTypes.css";
-import "../styles/components/PokemonTypesBackground.css" */
 import { weightAndHeight } from "../helpers/WeightAndHeightConverter";
 
 interface CardPokemonProps {

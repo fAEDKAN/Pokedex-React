@@ -40,7 +40,6 @@ body {
   background-image: url("/public/colored-pikachu-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-/*   backdrop-filter: blur(10px) opacity(5); */
   background-attachment: fixed;
 }
 `;

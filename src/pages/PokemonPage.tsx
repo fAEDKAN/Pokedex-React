@@ -6,6 +6,7 @@ import { PokemonData } from "../interfaces/PokemonData";
 import { capitalizedLetter } from "../helpers/CapitalizedLetter";
 import {
   CounterStat,
+  FilledProgressBar,
   GeneralStatsContainer,
   HeightWeight,
   HeightWeightGroup,
@@ -21,6 +22,8 @@ import {
   StyledPokemonPage,
 } from "../styles/components/PokemonPage";
 import { weightAndHeight } from "../helpers/WeightAndHeightConverter";
+import { IoScaleOutline } from "react-icons/io5";
+import { VscSymbolRuler } from "react-icons/vsc";
 
 const PokemonPage: React.FC = () => {
   const { getPokemonById } = useContext(PokemonContext);
@@ -49,6 +52,7 @@ const PokemonPage: React.FC = () => {
           <PokemonCardContainer>
             <MainPokemonContainer>
               {pokemon && <PokemonNumber># {pokemon.id}</PokemonNumber>}
+              {pokemon && <h1>{capitalizedLetter(pokemon.name)}</h1>}
               <PokemonImage>
                 {pokemon && (
                   <img
@@ -59,7 +63,6 @@ const PokemonPage: React.FC = () => {
               </PokemonImage>
 
               <PokemonDescription>
-                {pokemon && <h1>{capitalizedLetter(pokemon.name)}</h1>}
                 {pokemon && (
                   <PokemonTypes>
                     {pokemon.types.map((type) => (
@@ -75,29 +78,38 @@ const PokemonPage: React.FC = () => {
                 <HeightWeight>
                   <HeightWeightGroup>
                     <p>Height:</p>
+
                     {pokemon && (
-                      <span>{weightAndHeight(pokemon.height)} meters</span>
+                      <span>
+                        <VscSymbolRuler />
+                        {weightAndHeight(pokemon.height)} meters
+                      </span>
                     )}
                   </HeightWeightGroup>
                   <HeightWeightGroup>
                     <p>Weight:</p>
+
                     {pokemon && (
-                      <span>{weightAndHeight(pokemon.weight)} kilograms</span>
+                      <span>
+                        <IoScaleOutline />
+                        {weightAndHeight(pokemon.weight)} kilograms
+                      </span>
                     )}
                   </HeightWeightGroup>
                 </HeightWeight>
               </PokemonDescription>
             </MainPokemonContainer>
-
             <GeneralStatsContainer>
               <h1>Stats</h1>
               <StatsContainer>
                 <StatGroup>
                   <span>HP</span>
                   {pokemon && (
-                    <ProgressBar
-                      progress={(pokemon.stats[0].base_stat / 255) * 200}
-                    ></ProgressBar>
+                    <FilledProgressBar>
+                      <ProgressBar
+                        progress={(pokemon.stats[0].base_stat / 255) * 300}
+                      />
+                    </FilledProgressBar>
                   )}
                   {pokemon && (
                     <CounterStat>{pokemon.stats[0].base_stat}</CounterStat>
@@ -106,9 +118,11 @@ const PokemonPage: React.FC = () => {
                 <StatGroup>
                   <span>Attack</span>
                   {pokemon && (
-                    <ProgressBar
-                      progress={(pokemon.stats[1].base_stat / 255) * 200}
-                    ></ProgressBar>
+                    <FilledProgressBar>
+                      <ProgressBar
+                        progress={(pokemon.stats[1].base_stat / 255) * 300}
+                      />
+                    </FilledProgressBar>
                   )}
                   {pokemon && (
                     <CounterStat>{pokemon.stats[1].base_stat}</CounterStat>
@@ -117,9 +131,11 @@ const PokemonPage: React.FC = () => {
                 <StatGroup>
                   <span>Defense</span>
                   {pokemon && (
-                    <ProgressBar
-                      progress={(pokemon.stats[2].base_stat / 255) * 200}
-                    ></ProgressBar>
+                    <FilledProgressBar>
+                      <ProgressBar
+                        progress={(pokemon.stats[2].base_stat / 255) * 300}
+                      />
+                    </FilledProgressBar>
                   )}
                   {pokemon && (
                     <CounterStat>{pokemon.stats[2].base_stat}</CounterStat>
@@ -128,9 +144,11 @@ const PokemonPage: React.FC = () => {
                 <StatGroup>
                   <span>Special Attack</span>
                   {pokemon && (
-                    <ProgressBar
-                      progress={(pokemon.stats[3].base_stat / 255) * 200}
-                    ></ProgressBar>
+                    <FilledProgressBar>
+                      <ProgressBar
+                        progress={(pokemon.stats[3].base_stat / 255) * 300}
+                      />
+                    </FilledProgressBar>
                   )}
                   {pokemon && (
                     <CounterStat>{pokemon.stats[3].base_stat}</CounterStat>
@@ -139,9 +157,11 @@ const PokemonPage: React.FC = () => {
                 <StatGroup>
                   <span>Special Defense</span>
                   {pokemon && (
-                    <ProgressBar
-                      progress={(pokemon.stats[4].base_stat / 255) * 200}
-                    ></ProgressBar>
+                    <FilledProgressBar>
+                      <ProgressBar
+                        progress={(pokemon.stats[4].base_stat / 255) * 300}
+                      />
+                    </FilledProgressBar>
                   )}
                   {pokemon && (
                     <CounterStat>{pokemon.stats[4].base_stat}</CounterStat>
@@ -150,9 +170,11 @@ const PokemonPage: React.FC = () => {
                 <StatGroup>
                   <span>Speed</span>
                   {pokemon && (
-                    <ProgressBar
-                      progress={(pokemon.stats[5].base_stat / 255) * 200}
-                    ></ProgressBar>
+                    <FilledProgressBar>
+                      <ProgressBar
+                        progress={(pokemon.stats[5].base_stat / 255) * 300}
+                      />
+                    </FilledProgressBar>
                   )}
                   {pokemon && (
                     <CounterStat>{pokemon.stats[5].base_stat}</CounterStat>

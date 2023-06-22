@@ -1,5 +1,8 @@
 import React from "react";
-import { LoaderContainer, PokeballLoader } from "../styles/components/pokeLoader";
+import {
+  LoaderContainer,
+  PokeballLoader,
+} from "../styles/components/PokeLoader";
 
 const Loader: React.FC = () => {
   return (

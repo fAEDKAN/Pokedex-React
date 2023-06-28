@@ -61,7 +61,6 @@ const PokemonPage: React.FC = () => {
                   />
                 )}
               </PokemonImage>
-
               <PokemonDescription>
                 {pokemon && (
                   <PokemonTypes>
@@ -78,7 +77,6 @@ const PokemonPage: React.FC = () => {
                 <HeightWeight>
                   <HeightWeightGroup>
                     <p>Height:</p>
-
                     {pokemon && (
                       <span>
                         <VscSymbolRuler />
@@ -88,7 +86,6 @@ const PokemonPage: React.FC = () => {
                   </HeightWeightGroup>
                   <HeightWeightGroup>
                     <p>Weight:</p>
-
                     {pokemon && (
                       <span>
                         <IoScaleOutline />
@@ -102,84 +99,16 @@ const PokemonPage: React.FC = () => {
             <GeneralStatsContainer>
               <h1>Stats</h1>
               <StatsContainer>
-                <StatGroup>
-                  <span>HP</span>
-                  {pokemon && (
-                    <FilledProgressBar>
-                      <ProgressBar
-                        progress={(pokemon.stats[0].base_stat / 255) * 300}
-                      />
-                    </FilledProgressBar>
-                  )}
-                  {pokemon && (
-                    <CounterStat>{pokemon.stats[0].base_stat}</CounterStat>
-                  )}
-                </StatGroup>
-                <StatGroup>
-                  <span>Attack</span>
-                  {pokemon && (
-                    <FilledProgressBar>
-                      <ProgressBar
-                        progress={(pokemon.stats[1].base_stat / 255) * 300}
-                      />
-                    </FilledProgressBar>
-                  )}
-                  {pokemon && (
-                    <CounterStat>{pokemon.stats[1].base_stat}</CounterStat>
-                  )}
-                </StatGroup>
-                <StatGroup>
-                  <span>Defense</span>
-                  {pokemon && (
-                    <FilledProgressBar>
-                      <ProgressBar
-                        progress={(pokemon.stats[2].base_stat / 255) * 300}
-                      />
-                    </FilledProgressBar>
-                  )}
-                  {pokemon && (
-                    <CounterStat>{pokemon.stats[2].base_stat}</CounterStat>
-                  )}
-                </StatGroup>
-                <StatGroup>
-                  <span>Special Attack</span>
-                  {pokemon && (
-                    <FilledProgressBar>
-                      <ProgressBar
-                        progress={(pokemon.stats[3].base_stat / 255) * 300}
-                      />
-                    </FilledProgressBar>
-                  )}
-                  {pokemon && (
-                    <CounterStat>{pokemon.stats[3].base_stat}</CounterStat>
-                  )}
-                </StatGroup>
-                <StatGroup>
-                  <span>Special Defense</span>
-                  {pokemon && (
-                    <FilledProgressBar>
-                      <ProgressBar
-                        progress={(pokemon.stats[4].base_stat / 255) * 300}
-                      />
-                    </FilledProgressBar>
-                  )}
-                  {pokemon && (
-                    <CounterStat>{pokemon.stats[4].base_stat}</CounterStat>
-                  )}
-                </StatGroup>
-                <StatGroup>
-                  <span>Speed</span>
-                  {pokemon && (
-                    <FilledProgressBar>
-                      <ProgressBar
-                        progress={(pokemon.stats[5].base_stat / 255) * 300}
-                      />
-                    </FilledProgressBar>
-                  )}
-                  {pokemon && (
-                    <CounterStat>{pokemon.stats[5].base_stat}</CounterStat>
-                  )}
-                </StatGroup>
+                {pokemon &&
+                  pokemon.stats.map((stat, index) => (
+                    <StatGroup key={index}>
+                      <span>{stat.stat.name}:</span>
+                      <CounterStat>{stat.base_stat}</CounterStat>
+                      <FilledProgressBar>
+                        <ProgressBar progress={(stat.base_stat / 255) * 275} />
+                      </FilledProgressBar>
+                    </StatGroup>
+                  ))}
               </StatsContainer>
             </GeneralStatsContainer>
           </PokemonCardContainer>

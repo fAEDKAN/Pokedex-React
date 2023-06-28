@@ -119,21 +119,26 @@ export const GeneralStatsContainer = styled.div`
 export const StatsContainer = styled.div`
   display: flex;
   gap: 1em;
+  /* flex-direction: column; */
   flex-direction: column;
 `;
 
 export const StatGroup = styled.div`
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.25em;
-  flex-direction: column;
   & span {
     color: #fff;
   }
 `;
 
+// ProgressBar
 interface ProgressBarProps {
   progress: number;
 }
+
 export const ProgressBar = styled.div<ProgressBarProps>`
   height: 0.75em;
   width: ${(props) => props.progress}px;
@@ -143,7 +148,7 @@ export const ProgressBar = styled.div<ProgressBarProps>`
 
 export const FilledProgressBar = styled.div`
   height: 0.75em;
-  width: 300px;
+  width: 275px;
   border-radius: 1em;
   background-color: var(--color-normal);
 `;

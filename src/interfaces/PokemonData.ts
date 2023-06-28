@@ -32,5 +32,6 @@ interface TypeData {
 }
 
 interface StatsData {
+    stat: any;
     base_stat: number;
 }

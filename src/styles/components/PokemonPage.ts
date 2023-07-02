@@ -18,7 +18,7 @@ export const PokemonCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
   border-radius: 1.5em;
   position: relative;
   top: 1.5em;

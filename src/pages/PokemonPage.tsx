@@ -33,15 +33,15 @@ const PokemonPage: React.FC = () => {
 
   const { id } = useParams();
 
-  const fetchPokemon = async (id: string | undefined) => {
-    const data = await getPokemonById(id);
-    setPokemon(data);
-    setLoading(false);
-  };
-
   useEffect(() => {
+    const fetchPokemon = async (id: string | undefined) => {
+      const data = await getPokemonById(id);
+      setPokemon(data);
+      setLoading(false);
+    };
+
     fetchPokemon(id);
-  }, []);
+  }, [getPokemonById, id]);
 
   return (
     <StyledPokemonPage>
@@ -49,7 +49,7 @@ const PokemonPage: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <PokemonCardContainer>
+          <PokemonCardContainer className={pokemon?.types[0].type.name}>
             <MainPokemonContainer>
               {pokemon && <PokemonNumber># {pokemon.id}</PokemonNumber>}
               {pokemon && <h1>{capitalizedLetter(pokemon.name)}</h1>}

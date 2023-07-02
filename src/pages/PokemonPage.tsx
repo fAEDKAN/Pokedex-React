@@ -51,7 +51,11 @@ const PokemonPage: React.FC = () => {
         <>
           <PokemonCardContainer className={pokemon?.types[0].type.name}>
             <MainPokemonContainer>
-              {pokemon && <PokemonNumber># {pokemon.id}</PokemonNumber>}
+              {pokemon && (
+                <PokemonNumber className={pokemon.types[0].type.name}>
+                  # {pokemon.id}
+                </PokemonNumber>
+              )}
               {pokemon && <h1>{capitalizedLetter(pokemon.name)}</h1>}
               <PokemonImage>
                 {pokemon && (
@@ -97,7 +101,7 @@ const PokemonPage: React.FC = () => {
               </PokemonDescription>
             </MainPokemonContainer>
             <GeneralStatsContainer>
-              <h1>Stats</h1>
+              <h1 className={pokemon?.types[0].type.name}>Stats</h1>
               <StatsContainer>
                 {pokemon &&
                   pokemon.stats.map((stat, index) => (

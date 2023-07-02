@@ -18,7 +18,8 @@ export const PokemonCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 1.5em;
   position: relative;
   top: 1.5em;
@@ -28,7 +29,8 @@ export const PokemonCardContainer = styled.div`
 export const PokemonNumber = styled.span`
   font-size: 2.5em;
   font-weight: 600;
-  color: var(--color-grass);
+  background: none;
+  border: none;
   position: absolute;
   top: 0.5em;
   left: 0.75em;
@@ -51,6 +53,7 @@ export const PokemonImage = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  filter: drop-shadow(0px 5px 5px black);
   & img {
     width: 15em;
   }
@@ -80,6 +83,7 @@ export const PokemonTypes = styled.div`
     padding: 0.3em 1.2em;
     border-radius: 1em;
     color: #fff;
+    border: none;
   }
 `;
 
@@ -111,7 +115,8 @@ export const GeneralStatsContainer = styled.div`
   height: 100%;
   gap: 0.75em;
   & h1 {
-    color: var(--color-grass);
+    border: none;
+    background: none;
     font-size: 1.5em;
   }
 `;

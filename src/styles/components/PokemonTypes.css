@@ -3,89 +3,107 @@
 .water {
   background-color: var(--color-water);
   border: 0.5em solid var(--color-water);
+  color: var(--color-water)
 }
 
 .grass {
   background-color: var(--color-grass);
   border: 0.5em solid var(--color-grass);
+  color: var(--color-grass)
 }
 
 .poison {
   background-color: var(--color-poison);
   border: 0.5em solid var(--color-poison);
+  color: var(--color-poison)
 }
 
 .fire {
   background-color: var(--color-fire);
   border: 0.5em solid var(--color-fire);
+  color: var(--color-fire)
 }
 
 .bug {
   background-color: var(--color-bug);
   border: 0.5em solid var(--color-bug);
+  color: var(--color-bug)
 }
 
 .dragon {
   background: var(--color-dragon);
   border: 0.5em solid var(--color-fighting);
+  color: var(--color-fighting)
 }
 
 .flying {
   background: var(--color-flying);
   border: 0.5em solid var(--color-normal);
+  color: var(--color-normal)
 }
 
 .ground {
   background: var(--color-ground);
   border: 0.5em solid var(--color-rock);
+  color: var(--color-rock)
 }
 
 .steel {
   background-color: var(--color-steel);
   border: 0.5em solid var(--color-steel);
+  color: var(--color-steel)
 }
 
 .psychic {
   background-color: var(--color-psychic);
   border: 0.5em solid var(--color-psychic);
+  color: var(--color-psychic)
 }
 
 .ice {
   background-color: var(--color-ice);
   border: 0.5em solid var(--color-ice);
+  color: var(--color-ice)
 }
 
 .ghost {
   background-color: var(--color-ghost);
   border: 0.5em solid var(--color-ghost);
+  color: var(--color-ghost)
 }
 
 .normal {
   background-color: var(--color-normal);
   border: 0.5em solid var(--color-normal);
+  color: var(--color-normal)
 }
 
 .rock {
   background-color: var(--color-rock);
   border: 0.5em solid var(--color-rock);
+  color: var(--color-rock)
 }
 
 .electric {
   background-color: var(--color-electric);
   border: 0.5em solid var(--color-electric);
+  color: var(--color-electric)
 }
 
 .fighting {
   background-color: var(--color-fighting);
   border: 0.5em solid var(--color-fighting);
+  color: var(--color-fighting)
 }
 
 .fairy {
   background-color: var(--color-fairy);
   border: 0.5em solid var(--color-fairy);
+  color: var(--color-fairy)
 }
 
 .dark {
   background-color: var(--color-dark);
   border: 0.5em solid var(--color-dark);
+  color: var(--color-dark)
 }
